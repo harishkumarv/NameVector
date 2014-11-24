@@ -66,6 +66,7 @@ int main(int argc, char **argv) {
   }
   fclose(f);
   while (1) {
+   fflush(stdout);
     for (a = 0; a < N; a++) bestd[a] = 0;
     for (a = 0; a < N; a++) bestw[a][0] = 0;
     printf("Enter word or sentence (EXIT to break): ");
