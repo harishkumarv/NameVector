@@ -1,5 +1,7 @@
 package in.h10.word2vec;
 
+import in.h10.restserver.RestServer;
+
 import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -108,6 +110,8 @@ public class Word2vec extends AbstractWordToVector {
 		System.out.println(w2v.getWordVector("especially"));
 		w2v.getWordVector("custom");
 		w2v.getWordVector("custom");
+		RestServer restServer = RestServer.getInstance();
+		restServer.start(w2v);
 		//TODO fix word 
 		/*for(int i =0 ;i < 2000000;i++) {
 			w2v.getWordVector("hello");
