@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-import static spark.Spark.*;
+import spark.Spark;
 import com.google.gson.Gson;
 
 /**
@@ -24,7 +24,7 @@ public class RestServer {
     }
 
     public void start(Word2vec w2v) {
-        get("/names", (req, res) -> {
+        Spark.get("/names", (req, res) -> {
             String word = req.queryParams("q"), response;
             List <String> wordList;
             Iterator <String> iterator;
@@ -53,4 +53,10 @@ public class RestServer {
             return response;
         });
     }
+    private class JsonResponse {
+        public String q;
+        public String[] words = new String[]{};
+        public String error;
+    }
+
 }

@@ -4,6 +4,12 @@ A name finder using machine learning techniques
 
 #Links
 [word2vec](https://code.google.com/p/word2vec/)
+[spark](http://sparkjava.com/documentation.html)
+
+#Dependencies
+* jdk-8
+* Gson
+* spark
 
 #Installation
 

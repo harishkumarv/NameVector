@@ -42,7 +42,7 @@ public class Word2vec extends AbstractWordToVector {
 	 * @exception IOException In case of error in reading data from process output Stream.
 	 */
 	@Override
-	public WordVector getWordVector(String word) throws IOException {
+	public synchronized WordVector getWordVector(String word) throws IOException {
 		//long time  = System.currentTimeMillis();
 		String line = "";
 		//System.out.println(br.readLine());
@@ -104,27 +104,6 @@ public class Word2vec extends AbstractWordToVector {
 	}
 
 
-	public static void main(String args[]) throws IOException, InterruptedException {
-		Word2vec w2v = new Word2vec(new File("word2vec/vectors.bin"));
-		//long t = System.currentTimeMillis();
-		System.out.println(w2v.getWordVector("especially"));
-		w2v.getWordVector("custom");
-		w2v.getWordVector("custom");
-		RestServer restServer = RestServer.getInstance();
-		restServer.start(w2v);
-		//TODO fix word 
-		/*for(int i =0 ;i < 2000000;i++) {
-			w2v.getWordVector("hello");
-		}*/
-		/*
-		//System.out.println("Complete");
-		Thread.sleep(100000);
-		//System.out.println("starting again.....");
-		for(int i =0 ;i < 2;i++) {
-			w2v.getWordVector("hello");
-		}
-		//System.out.println(w2v.getWordVector("hi"));*/
-		//System.out.println((System.currentTimeMillis() - t ));
-	}
+
 
 }
